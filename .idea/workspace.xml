@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ec06edaf-1e5a-469f-98a8-160f236b3b70" name="Changes" comment="Обновлена архитектура">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="ec06edaf-1e5a-469f-98a8-160f236b3b70" name="Changes" comment="Финальный коммит" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -88,7 +85,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765056103881</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Финальный коммит">
+      <option name="closed" value="true" />
+      <created>1765353638278</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1765353638278</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -105,6 +110,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Прописана работа с симуляцией исполнительных элементов" />
     <MESSAGE value="Обновлена архитектура" />
-    <option name="LAST_COMMIT_MESSAGE" value="Обновлена архитектура" />
+    <MESSAGE value="Финальный коммит" />
+    <option name="LAST_COMMIT_MESSAGE" value="Финальный коммит" />
   </component>
 </project>

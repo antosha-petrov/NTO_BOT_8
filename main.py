@@ -16,7 +16,7 @@ from aiogram.fsm.state import State, StatesGroup
 SERVER_URL = "https://seasonally-fulfilled-raccoon.cloudpub.ru"
 
 # ---------- Токен бота ----------
-bot_token = "8241496751:AAH9DmunV9DkQmpxW_Tq2K7ScpQwsPFNHKs"
+bot_token = ""
 
 # ---------- Задержка для сигнализации ----------
 alarm_delay = 10
