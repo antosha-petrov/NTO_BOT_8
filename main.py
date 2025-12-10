@@ -13,7 +13,7 @@ from aiogram.fsm.state import State, StatesGroup
 
 
 # ---------- Адрес сервера ----------
-SERVER_URL = "http://localhost:8000"
+SERVER_URL = "https://seasonally-fulfilled-raccoon.cloudpub.ru"
 
 # ---------- Токен бота ----------
 bot_token = "8241496751:AAH9DmunV9DkQmpxW_Tq2K7ScpQwsPFNHKs"
@@ -52,43 +52,37 @@ class ManualControl(StatesGroup):
 # ---------- Post-запросы ----------
 async def set_alarm_code(new_code: str) -> bool:
     async with aiohttp.ClientSession() as session:
-        async with session.post(f"{SERVER_URL}/set/alarm_code", json={"value": new_code}) as r:
-            return r.status == 200
-
-
-async def set_event(new_code: str) -> bool:
-    async with aiohttp.ClientSession() as session:
-        async with session.post(f"{SERVER_URL}/set/event", json={"value": new_code}) as r:
+        async with session.post(f"{SERVER_URL}/set/alarm_code", json={"alarm_code": new_code}) as r:
             return r.status == 200
 
 
 async def set_window_open(is_open: bool) -> bool:
     async with aiohttp.ClientSession() as session:
-        async with session.post(f"{SERVER_URL}/set/window_open", json={"value": is_open}) as r:
+        async with session.post(f"{SERVER_URL}/set/window_open", json={"window_open": is_open}) as r:
             return r.status == 200
 
 
 async def set_control_mode(mode: str) -> bool:
     async with aiohttp.ClientSession() as session:
-        async with session.post(f"{SERVER_URL}/set/control_mode", json={"value": mode}) as r:
+        async with session.post(f"{SERVER_URL}/set/control_mode", json={"control_mode": mode}) as r:
             return r.status == 200
 
 
 async def set_alarm_active(active: bool) -> bool:
     async with aiohttp.ClientSession() as session:
-        async with session.post(f"{SERVER_URL}/set/alarm_active", json={"value": active}) as r:
+        async with session.post(f"{SERVER_URL}/set/alarm_active", json={"alarm_active": active}) as r:
             return r.status == 200
 
 
 async def set_buzzer_active(active: bool) -> bool:
     async with aiohttp.ClientSession() as session:
-        async with session.post(f"{SERVER_URL}/set/buzzer_active", json={"value": active}) as r:
+        async with session.post(f"{SERVER_URL}/set/buzzer_active", json={"buzzer_active": active}) as r:
             return r.status == 200
 
 
 async def set_led_color(color: str) -> bool:
     async with aiohttp.ClientSession() as session:
-        async with session.post(f"{SERVER_URL}/set/led_color", json={"value": color}) as r:
+        async with session.post(f"{SERVER_URL}/set/led_color", json={"led_color": color}) as r:
             return r.status == 200
 
 
@@ -314,7 +308,7 @@ async def cmd_state(message: Message):
     text = (
         "📟 Состояние системы:\n\n"
         f"💨 Есть кто дома? - {'да' if await get_inside_presence() else 'нет'}\n"
-        f"👣 Есть движение перед домом? - : {'да' if await get_pir_motion() else 'нет'}\n"
+        f"👣 Есть движение перед домом? - {'да' if await get_pir_motion() else 'нет'}\n"
         f"📏 Освещенность на улице - {await get_last_ldr()}\n"
         f"🪟 Уровень газа в доме - {await get_last_mq2()}\n"
         f"🔐 Температура на улице - {await get_last_temp()}\n"
@@ -652,7 +646,6 @@ async def go_manual(fsm_state: FSMContext):
     )
 
     await fsm_state.set_state(CheckStates.checking_for_alarm_code)
-    await set_control_mode("manual")
 
 
 async def check_event():
